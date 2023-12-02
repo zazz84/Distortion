@@ -1,0 +1,221 @@
+
+Builds/VisualStudio2017/.vs/config/applicationhost.config
+Builds/VisualStudio2017/.vs/Distortion/v15/.suo
+Builds/VisualStudio2017/.vs/Distortion/v15/Browse.VC.db
+Builds/VisualStudio2017/.vs/Distortion/v15/ipch/AutoPCH/1e81a05680c8fcec/PLUGINEDITOR.ipch
+Builds/VisualStudio2017/.vs/Distortion/v15/ipch/AutoPCH/7745594550c2f7af/PLUGINEDITOR.ipch
+Builds/VisualStudio2017/.vs/Distortion/v15/ipch/AutoPCH/865f472a8c2c19b8/PLUGINPROCESSOR.ipch
+Builds/VisualStudio2017/.vs/Distortion/v15/ipch/AutoPCH/e262a17b5b20a8f/PLUGINEDITOR.ipch
+Builds/VisualStudio2017/.vs/Distortion/v15/ipch/AutoPCH/e32bae3d55c1f718/PLUGINPROCESSOR.ipch
+Builds/VisualStudio2017/.vs/Distortion/v15/Solution.VC.db
+Builds/VisualStudio2017/Distortion.sln
+Builds/VisualStudio2017/Distortion_SharedCode.vcxproj
+Builds/VisualStudio2017/Distortion_SharedCode.vcxproj.filters
+Builds/VisualStudio2017/Distortion_SharedCode.vcxproj.user
+Builds/VisualStudio2017/Distortion_StandalonePlugin.vcxproj
+Builds/VisualStudio2017/Distortion_StandalonePlugin.vcxproj.filters
+Builds/VisualStudio2017/Distortion_StandalonePlugin.vcxproj.user
+Builds/VisualStudio2017/Distortion_VST3.vcxproj
+Builds/VisualStudio2017/Distortion_VST3.vcxproj.filters
+Builds/VisualStudio2017/Distortion_VST3.vcxproj.user
+Builds/VisualStudio2017/Distortion_VST3ManifestHelper.vcxproj
+Builds/VisualStudio2017/Distortion_VST3ManifestHelper.vcxproj.filters
+Builds/VisualStudio2017/resources.rc
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/Distortion_SharedCode.lastbuildstate
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/Lib-link.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/Lib-link.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distorti.8E08C53F.tlog/Lib.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distortion.lib
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distortion.pdb
+Builds/VisualStudio2017/x64/Debug/Shared Code/Distortion_SharedCode.log
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_basics.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_devices.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_formats.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_plugin_client_ARA.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_processors.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_processors_ara.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_processors_lv2_libs.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_audio_utils.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_core.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_data_structures.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_events.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_graphics.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_gui_basics.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/include_juce_gui_extra.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/PluginEditor.obj
+Builds/VisualStudio2017/x64/Debug/Shared Code/PluginProcessor.obj
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/Distortion_StandalonePlugin.lastbuildstate
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/link.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/link.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/link.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/rc.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/rc.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distorti.042D0007.tlog/rc.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distortion.exe
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distortion.ilk
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distortion.pdb
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/Distortion_StandalonePlugin.log
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/include_juce_audio_plugin_client_Standalone.obj
+Builds/VisualStudio2017/x64/Debug/Standalone Plugin/resources.res
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/Distortion_VST3ManifestHelper.lastbuildstate
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/link.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/link.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/link.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/rc.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/rc.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/rc.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/Distortion_VST3ManifestHelper.log
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/juce_vst3_helper.exe
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/juce_vst3_helper.ilk
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/juce_vst3_helper.pdb
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/juce_VST3ManifestHelper.obj
+Builds/VisualStudio2017/x64/Debug/VST3 Manifest Helper/resources.res
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.dll
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.exp
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.ilk
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.lib
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.pdb
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.vst3/Contents/Resources/moduleinfo.json
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion.vst3/Contents/x86_64-win/Distortion.vst3
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.log
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/Distortion_VST3.lastbuildstate
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/Distortion_VST3.write.1u.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/link.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/link.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/link.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/rc.command.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/rc.read.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/rc.write.1.tlog
+Builds/VisualStudio2017/x64/Debug/VST3/include_juce_audio_plugin_client_VST3.obj
+Builds/VisualStudio2017/x64/Debug/VST3/resources.res
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/Distortion_SharedCode.lastbuildstate
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/Lib-link.read.1.tlog
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/Lib-link.write.1.tlog
+Builds/VisualStudio2017/x64/Release/Shared Code/Distorti.8E08C53F.tlog/Lib.command.1.tlog
+Builds/VisualStudio2017/x64/Release/Shared Code/Distortion.lib
+Builds/VisualStudio2017/x64/Release/Shared Code/Distortion.pdb
+Builds/VisualStudio2017/x64/Release/Shared Code/Distortion_SharedCode.log
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_basics.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_devices.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_formats.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_plugin_client_ARA.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_processors.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_processors_ara.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_processors_lv2_libs.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_audio_utils.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_core.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_data_structures.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_events.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_graphics.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_gui_basics.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/include_juce_gui_extra.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/PluginEditor.obj
+Builds/VisualStudio2017/x64/Release/Shared Code/PluginProcessor.obj
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/Distortion_StandalonePlugin.lastbuildstate
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/link.command.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/link.read.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/link.write.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/rc.command.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/rc.read.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distorti.042D0007.tlog/rc.write.1.tlog
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distortion.exe
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distortion.pdb
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/Distortion_StandalonePlugin.log
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/include_juce_audio_plugin_client_Standalone.obj
+Builds/VisualStudio2017/x64/Release/Standalone Plugin/resources.res
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/Distortion_VST3ManifestHelper.lastbuildstate
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/link.command.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/link.read.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/link.write.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/rc.command.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/rc.read.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distorti.D91EB0B0.tlog/rc.write.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/Distortion_VST3ManifestHelper.log
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/juce_vst3_helper.exe
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/juce_vst3_helper.pdb
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/juce_VST3ManifestHelper.obj
+Builds/VisualStudio2017/x64/Release/VST3 Manifest Helper/resources.res
+Builds/VisualStudio2017/x64/Release/VST3/Distortion.dll
+Builds/VisualStudio2017/x64/Release/VST3/Distortion.exp
+Builds/VisualStudio2017/x64/Release/VST3/Distortion.lib
+Builds/VisualStudio2017/x64/Release/VST3/Distortion.pdb
+Builds/VisualStudio2017/x64/Release/VST3/Distortion.vst3/Contents/Resources/moduleinfo.json
+Builds/VisualStudio2017/x64/Release/VST3/Distortion.vst3/Contents/x86_64-win/Distortion.vst3
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.log
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/CL.command.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/CL.read.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/CL.write.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/Distortion_VST3.lastbuildstate
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/Distortion_VST3.write.1u.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/link.command.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/link.read.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/link.write.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/rc.command.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/rc.read.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/rc.write.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/include_juce_audio_plugin_client_VST3.obj
+Builds/VisualStudio2017/x64/Release/VST3/resources.res
+Distortion.filtergraph
+JuceLibraryCode/include_juce_audio_basics.cpp
+JuceLibraryCode/include_juce_audio_basics.mm
+JuceLibraryCode/include_juce_audio_devices.cpp
+JuceLibraryCode/include_juce_audio_devices.mm
+JuceLibraryCode/include_juce_audio_formats.cpp
+JuceLibraryCode/include_juce_audio_formats.mm
+JuceLibraryCode/include_juce_audio_plugin_client_AAX.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_AAX.mm
+JuceLibraryCode/include_juce_audio_plugin_client_AAX_utils.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_ARA.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm
+JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm
+JuceLibraryCode/include_juce_audio_plugin_client_AUv3.mm
+JuceLibraryCode/include_juce_audio_plugin_client_LV2.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_LV2.mm
+JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_Unity.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_VST2.mm
+JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp
+JuceLibraryCode/include_juce_audio_plugin_client_VST3.mm
+JuceLibraryCode/include_juce_audio_processors.cpp
+JuceLibraryCode/include_juce_audio_processors.mm
+JuceLibraryCode/include_juce_audio_processors_ara.cpp
+JuceLibraryCode/include_juce_audio_processors_lv2_libs.cpp
+JuceLibraryCode/include_juce_audio_utils.cpp
+JuceLibraryCode/include_juce_audio_utils.mm
+JuceLibraryCode/include_juce_core.cpp
+JuceLibraryCode/include_juce_core.mm
+JuceLibraryCode/include_juce_data_structures.cpp
+JuceLibraryCode/include_juce_data_structures.mm
+JuceLibraryCode/include_juce_events.cpp
+JuceLibraryCode/include_juce_events.mm
+JuceLibraryCode/include_juce_graphics.cpp
+JuceLibraryCode/include_juce_graphics.mm
+JuceLibraryCode/include_juce_gui_basics.cpp
+JuceLibraryCode/include_juce_gui_basics.mm
+JuceLibraryCode/include_juce_gui_extra.cpp
+JuceLibraryCode/include_juce_gui_extra.mm
+JuceLibraryCode/JuceHeader.h
+JuceLibraryCode/JucePluginDefines.h
+JuceLibraryCode/ReadMe.txt
