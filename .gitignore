@@ -219,3 +219,5 @@ JuceLibraryCode/include_juce_gui_extra.mm
 JuceLibraryCode/JuceHeader.h
 JuceLibraryCode/JucePluginDefines.h
 JuceLibraryCode/ReadMe.txt
+Builds/VisualStudio2017/x64/Debug/VST3/Distortion_VST3.tlog/link.delete.1.tlog
+Builds/VisualStudio2017/x64/Release/VST3/Distortion_VST3.tlog/link.delete.1.tlog

@@ -176,7 +176,6 @@ void DistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
 			{
 				channelBuffer[sample] = inVolume;
 			}
-
 		}
 	}
 }
