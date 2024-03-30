@@ -17,29 +17,36 @@ DistortionAudioProcessorEditor::DistortionAudioProcessorEditor (DistortionAudioP
 	juce::Colour medium = juce::Colour::fromHSV(0.6f, 0.5f, 0.5f, 1.0f);
 	juce::Colour dark   = juce::Colour::fromHSV(0.6f, 0.5f, 0.4f, 1.0f);
 
-	getLookAndFeel().setColour(juce::Slider::thumbColourId, dark);
-	getLookAndFeel().setColour(juce::Slider::rotarySliderFillColourId, medium);
-	getLookAndFeel().setColour(juce::Slider::rotarySliderOutlineColourId, light);
+	const int fonthHeight = (int)(SLIDER_WIDTH / FONT_DIVISOR);
 
-	for (int i = 0; i < N_SLIDERS_COUNT; i++)
+	for (int i = 0; i < N_SLIDERS; i++)
 	{
 		auto& label = m_labels[i];
 		auto& slider = m_sliders[i];
 
 		//Lable
 		label.setText(DistortionAudioProcessor::paramsNames[i], juce::dontSendNotification);
-		label.setFont(juce::Font(24.0f * 0.01f * SCALE, juce::Font::bold));
+		label.setFont(juce::Font(fonthHeight, juce::Font::bold));
 		label.setJustificationType(juce::Justification::centred);
 		addAndMakeVisible(label);
 
 		//Slider
+		slider.setLookAndFeel(&zazzLookAndFeel);
 		slider.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
-		slider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 80, 20);
 		addAndMakeVisible(slider);
 		m_sliderAttachment[i].reset(new SliderAttachment(valueTreeState, DistortionAudioProcessor::paramsNames[i], slider));
 	}
 
-	setSize((int)(SLIDER_WIDTH * 0.01f * SCALE * N_SLIDERS_COUNT), (int)(SLIDER_WIDTH * 0.01f * SCALE));
+	// Canvas
+	setResizable(true, true);
+	const float width = SLIDER_WIDTH * N_SLIDERS;
+	setSize(width, SLIDER_WIDTH);
+
+	if (auto* constrainer = getConstrainer())
+	{
+		constrainer->setFixedAspectRatio(N_SLIDERS);
+		constrainer->setSizeLimits(width * 0.7f, SLIDER_WIDTH * 0.7, width * 2.0f, SLIDER_WIDTH * 2.0f);
+	}
 }
 
 DistortionAudioProcessorEditor::~DistortionAudioProcessorEditor()
@@ -54,18 +61,23 @@ void DistortionAudioProcessorEditor::paint (juce::Graphics& g)
 
 void DistortionAudioProcessorEditor::resized()
 {
-	// Sliders + Menus
-	int width = getWidth() / N_SLIDERS_COUNT;
-	int height = (int)(SLIDER_WIDTH * 0.01f * SCALE);
-	juce::Rectangle<int> rectangles[N_SLIDERS_COUNT];
+	const int width = (int)(getWidth() / N_SLIDERS);
+	const int height = getHeight();
+	const int fonthHeight = (int)(height / FONT_DIVISOR);
+	const int labelOffset = (int)(SLIDER_WIDTH / FONT_DIVISOR) + 5;
 
-	for (int i = 0; i < N_SLIDERS_COUNT; ++i)
+	// Sliders + Labels
+	for (int i = 0; i < N_SLIDERS; ++i)
 	{
-		rectangles[i].setSize(width, height);
-		rectangles[i].setPosition(i * width, 0);
-		m_sliders[i].setBounds(rectangles[i]);
+		juce::Rectangle<int> rectangle;
 
-		rectangles[i].removeFromBottom((int)(LABEL_OFFSET * 0.01f * SCALE));
-		m_labels[i].setBounds(rectangles[i]);
+		rectangle.setSize(width, height);
+		rectangle.setPosition(i * width, 0);
+		m_sliders[i].setBounds(rectangle);
+
+		rectangle.removeFromBottom(labelOffset);
+		m_labels[i].setBounds(rectangle);
+
+		m_labels[i].setFont(juce::Font(fonthHeight, juce::Font::bold));
 	}
 }
