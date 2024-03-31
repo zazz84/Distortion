@@ -52,7 +52,7 @@ float BiquadLowPassFilter::process(float in)
 }
 //==============================================================================
 
-const std::string DistortionAudioProcessor::paramsNames[] = { "Drive", "LPFreq", "Resonance", "Mix", "Volume" };
+const std::string DistortionAudioProcessor::paramsNames[] = { "Drive", "Dynamics", "Cutoff", "Resonance", "Mix", "Volume" };
 
 //==============================================================================
 DistortionAudioProcessor::DistortionAudioProcessor()
@@ -68,12 +68,11 @@ DistortionAudioProcessor::DistortionAudioProcessor()
 #endif
 {
 	driveParameter  = apvts.getRawParameterValue(paramsNames[0]);
-	frequencyParameter = apvts.getRawParameterValue(paramsNames[1]);
-	resonanceParameter = apvts.getRawParameterValue(paramsNames[2]);
-	mixParameter    = apvts.getRawParameterValue(paramsNames[3]);
-	volumeParameter = apvts.getRawParameterValue(paramsNames[4]);
-
-	autoGainReductionParameter = static_cast<juce::AudioParameterBool*>(apvts.getParameter("AutoGainReduction"));
+	dynamicsParameter  = apvts.getRawParameterValue(paramsNames[1]);
+	frequencyParameter = apvts.getRawParameterValue(paramsNames[2]);
+	resonanceParameter = apvts.getRawParameterValue(paramsNames[3]);
+	mixParameter    = apvts.getRawParameterValue(paramsNames[4]);
+	volumeParameter = apvts.getRawParameterValue(paramsNames[5]);;
 }
 
 DistortionAudioProcessor::~DistortionAudioProcessor()
@@ -202,11 +201,11 @@ void DistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
 {
 	// Get params
 	const auto drive = driveParameter->load();
+	const auto dynamics = dynamicsParameter->load();
 	const auto frequency = frequencyParameter->load();
 	const auto resonance = resonanceParameter->load() * 4.0f;
 	const auto volume = juce::Decibels::decibelsToGain(volumeParameter->load());
 	const auto mix = mixParameter->load();
-	const auto autoGainReduction = autoGainReductionParameter->get();
 
 	// Mics constants
 	const float driveExponent = (drive >= 0.0f) ? 1.0f - (0.99f * drive) : 1.0f - 3.0f * drive;
@@ -244,10 +243,24 @@ void DistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
 			// Get output loundess
 			const float outputLoudness = outputEnvelope.process(inFiltered);
 
+			// Get gain compensation
 			float gainComponesation = 1.0f;
-
-			if (autoGainReduction && outputLoudness > 0.001f)
+			
+			if (outputLoudness > 0.001f)
+			{
 				gainComponesation = inputLoudness / outputLoudness;
+
+				if (gainComponesation < 1.0f)
+				{
+					const float delta = 1.0f - gainComponesation;
+					gainComponesation = 1.0f - (delta * dynamics);
+				}
+				else
+				{
+					const float delta = gainComponesation - 1.0f;
+					gainComponesation = 1.0f + (delta * dynamics);
+				}
+			}
 
 			// Apply volume and mix
 			const float inVolume = volume * mix * inFiltered * gainComponesation + mixInverse * in;
@@ -304,12 +317,11 @@ juce::AudioProcessorValueTreeState::ParameterLayout DistortionAudioProcessor::cr
 	using namespace juce;
 
 	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[0], paramsNames[0], NormalisableRange<float>( -1.0f,     1.0f, 0.01f, 1.0f),      0.0f));
-	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[1], paramsNames[1], NormalisableRange<float>( 20.0f, 20000.0f,  1.0f, 0.4f), 200000.0f));
-	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[2], paramsNames[2], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      0.0f));
-	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[3], paramsNames[3], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      1.0f));
-	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[4], paramsNames[4], NormalisableRange<float>(-36.0f,    36.0f,  0.1f, 1.0f),      0.0f));
-
-	layout.add(std::make_unique<juce::AudioParameterBool>("AutoGainReduction", "AutoGainReduction", false));
+	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[1], paramsNames[1], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      0.0f));
+	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[2], paramsNames[2], NormalisableRange<float>( 40.0f, 20000.0f,  1.0f, 0.4f), 200000.0f));
+	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[3], paramsNames[3], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      0.0f));
+	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[4], paramsNames[4], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      1.0f));
+	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[5], paramsNames[5], NormalisableRange<float>(-36.0f,    36.0f,  0.1f, 1.0f),      0.0f));
 
 	return layout;
 }

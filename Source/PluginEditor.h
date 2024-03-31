@@ -87,7 +87,7 @@ public:
     ~DistortionAudioProcessorEditor() override;
 
 	// GUI setup
-	static const int N_SLIDERS = 5;
+	static const int N_SLIDERS = 6;
 	static const int SLIDER_WIDTH = 140;
 
 	static const int FONT_DIVISOR = 9;
@@ -108,10 +108,6 @@ private:
 	juce::Label m_labels[N_SLIDERS] = {};
 	juce::Slider m_sliders[N_SLIDERS] = {};
 	std::unique_ptr<SliderAttachment> m_sliderAttachment[N_SLIDERS] = {};
-
-	juce::TextButton m_autoGainReducionButton{ "A" };
-
-	std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> m_autoGainReducionAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DistortionAudioProcessorEditor)
 };

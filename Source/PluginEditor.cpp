@@ -37,14 +37,6 @@ DistortionAudioProcessorEditor::DistortionAudioProcessorEditor (DistortionAudioP
 		m_sliderAttachment[i].reset(new SliderAttachment(valueTreeState, DistortionAudioProcessor::paramsNames[i], slider));
 	}
 
-	// Buttons
-	addAndMakeVisible(m_autoGainReducionButton);
-	m_autoGainReducionButton.setClickingTogglesState(true);
-	m_autoGainReducionAttachment.reset(new juce::AudioProcessorValueTreeState::ButtonAttachment(valueTreeState, "AutoGainReduction", m_autoGainReducionButton));
-	m_autoGainReducionButton.setColour(juce::TextButton::buttonColourId, light);
-	m_autoGainReducionButton.setColour(juce::TextButton::buttonOnColourId, dark);
-	m_autoGainReducionButton.setLookAndFeel(&zazzLookAndFeel);
-
 	// Canvas
 	setResizable(true, true);
 	const float width = SLIDER_WIDTH * N_SLIDERS;
@@ -70,8 +62,8 @@ void DistortionAudioProcessorEditor::paint (juce::Graphics& g)
 	g.setColour(juce::Colour::fromHSV(0.6f, 0.5f, 0.6f, 1.0f));
 	const int width = (int)(getWidth() / N_SLIDERS);
 	
-	g.drawVerticalLine(width, 0, getHeight());
-	g.drawVerticalLine(3 * width, 0, getHeight());
+	g.drawVerticalLine(2 * width, 0, getHeight());
+	g.drawVerticalLine(4 * width, 0, getHeight());
 }
 
 void DistortionAudioProcessorEditor::resized()
@@ -95,8 +87,4 @@ void DistortionAudioProcessorEditor::resized()
 
 		m_labels[i].setFont(juce::Font(fonthHeight, juce::Font::bold));
 	}
-
-	// Buttons
-	const int posY = height - (int)(1.8f * fonthHeight);
-	m_autoGainReducionButton.setBounds((int)(width - 1.8f * fonthHeight), posY, fonthHeight, fonthHeight);
 }

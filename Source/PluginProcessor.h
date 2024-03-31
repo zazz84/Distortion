@@ -107,6 +107,7 @@ private:
 	//==============================================================================
 
 	std::atomic<float>* driveParameter = nullptr;
+	std::atomic<float>* dynamicsParameter = nullptr;
 	std::atomic<float>* frequencyParameter = nullptr;
 	std::atomic<float>* resonanceParameter = nullptr;
 	std::atomic<float>* mixParameter = nullptr;
