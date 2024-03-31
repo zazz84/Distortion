@@ -109,5 +109,9 @@ private:
 	juce::Slider m_sliders[N_SLIDERS] = {};
 	std::unique_ptr<SliderAttachment> m_sliderAttachment[N_SLIDERS] = {};
 
+	juce::TextButton m_autoGainReducionButton{ "A" };
+
+	std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> m_autoGainReducionAttachment;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DistortionAudioProcessorEditor)
 };

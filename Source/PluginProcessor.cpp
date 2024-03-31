@@ -9,6 +9,49 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+//==============================================================================
+EnvelopeFollower::EnvelopeFollower()
+{
+}
+
+void EnvelopeFollower::setCoef(float attackTimeMs, float releaseTimeMs)
+{
+	m_AttackCoef = exp(-1000.0f / (attackTimeMs * m_SampleRate));
+	m_ReleaseCoef = exp(-1000.0f / (releaseTimeMs * m_SampleRate));
+}
+
+float EnvelopeFollower::process(float in)
+{
+	const float inAbs = fabs(in);
+	m_Out1Last = fmaxf(inAbs, m_ReleaseCoef * m_Out1Last + (1.0f - m_ReleaseCoef) * inAbs);
+	return m_OutLast = m_AttackCoef * (m_OutLast - m_Out1Last) + m_Out1Last;
+}
+
+//==============================================================================
+
+void BiquadLowPassFilter::set(float frequency, float Q)
+{
+	float frequencyLimited = fminf(frequency, 0.5f * (float)m_SampleRate);
+	float norm;
+	float K = tan(3.141593f * frequencyLimited / m_SampleRate);
+
+	norm = 1 / (1 + K / Q + K * K);
+	a0 = K * K * norm;
+	a1 = 2 * a0;
+	a2 = a0;
+	b1 = 2 * (K * K - 1) * norm;
+	b2 = (1 - K / Q + K * K) * norm;
+}
+
+float BiquadLowPassFilter::process(float in)
+{
+	float out = in * a0 + z1;
+	z1 = in * a1 + z2 - b1 * out;
+	z2 = in * a2 - b2 * out;
+	return out;
+}
+//==============================================================================
+
 const std::string DistortionAudioProcessor::paramsNames[] = { "Drive", "LPFreq", "Resonance", "Mix", "Volume" };
 
 //==============================================================================
@@ -29,6 +72,8 @@ DistortionAudioProcessor::DistortionAudioProcessor()
 	resonanceParameter = apvts.getRawParameterValue(paramsNames[2]);
 	mixParameter    = apvts.getRawParameterValue(paramsNames[3]);
 	volumeParameter = apvts.getRawParameterValue(paramsNames[4]);
+
+	autoGainReductionParameter = static_cast<juce::AudioParameterBool*>(apvts.getParameter("AutoGainReduction"));
 }
 
 DistortionAudioProcessor::~DistortionAudioProcessor()
@@ -103,6 +148,22 @@ void DistortionAudioProcessor::prepareToPlay (double sampleRate, int samplesPerB
 	const int sr = (int)sampleRate;
 	m_lowPassFilter[0].init(sr);
 	m_lowPassFilter[1].init(sr);
+
+	m_inputEnvelope[0].init(sr);
+	m_inputEnvelope[1].init(sr);
+
+	m_outputEnvelope[0].init(sr);
+	m_outputEnvelope[1].init(sr);
+
+	static const float attack = 1.0f;
+	static const float release = 10.0f;
+
+	m_inputEnvelope[0].setCoef(attack, release);
+	m_inputEnvelope[1].setCoef(attack, release);
+
+	m_outputEnvelope[0].setCoef(attack, release);
+	m_outputEnvelope[1].setCoef(attack, release);
+
 }
 
 void DistortionAudioProcessor::releaseResources()
@@ -140,31 +201,38 @@ bool DistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layout
 void DistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
 	// Get params
-	const float drive = driveParameter->load();
-	const float frequency = frequencyParameter->load();
-	const float resonance = resonanceParameter->load() * lerp(20.0f, 20000.0f, 2.5f, 0.8f, frequency);
-	const float volume = juce::Decibels::decibelsToGain(volumeParameter->load());
-	const float mix = mixParameter->load();
+	const auto drive = driveParameter->load();
+	const auto frequency = frequencyParameter->load();
+	const auto resonance = resonanceParameter->load() * 4.0f;
+	const auto volume = juce::Decibels::decibelsToGain(volumeParameter->load());
+	const auto mix = mixParameter->load();
+	const auto autoGainReduction = autoGainReductionParameter->get();
 
 	// Mics constants
-	const float driveExponent = (drive >= 0.0f) ? 1.0f - drive : 1.0f - 3.0f * drive;
+	const float driveExponent = (drive >= 0.0f) ? 1.0f - (0.99f * drive) : 1.0f - 3.0f * drive;
 	const float mixInverse = 1.0f - mix;
 	const int channels = getTotalNumOutputChannels();
 	const int samples = buffer.getNumSamples();
+
+	float gainComponsation = 0.0f;
 
 	for (int channel = 0; channel < channels; ++channel)
 	{
 		auto* channelBuffer = buffer.getWritePointer(channel);
 		auto& lowPassFilter = m_lowPassFilter[channel];
+		auto& inputEnvelope = m_inputEnvelope[channel];
+		auto& outputEnvelope = m_outputEnvelope[channel];
 
 		// Set filter
-		lowPassFilter.setFrequency(frequency);
-		lowPassFilter.setResonance(resonance);
+		lowPassFilter.set(frequency, 0.707f + resonance);
 
 		for (int sample = 0; sample < samples; ++sample)
 		{
 			// Get input
 			const float in = channelBuffer[sample];
+
+			// Get input loudness
+			const float inputLoudness = inputEnvelope.process(in);
 
 			// Distort
 			const float sign = (in >= 0.0f) ? 1.0f : -1.0f;
@@ -173,8 +241,16 @@ void DistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
 			// Low pass filter
 			const float inFiltered = lowPassFilter.process(inDistorted);
 
+			// Get output loundess
+			const float outputLoudness = outputEnvelope.process(inFiltered);
+
+			float gainComponesation = 1.0f;
+
+			if (autoGainReduction && outputLoudness > 0.001f)
+				gainComponesation = inputLoudness / outputLoudness;
+
 			// Apply volume and mix
-			const float inVolume = volume * mix * inFiltered + mixInverse * in;
+			const float inVolume = volume * mix * inFiltered * gainComponesation + mixInverse * in;
 
 			// Clip to <-1.0, 1.0> range
 			if (inVolume > 1.0f)
@@ -232,6 +308,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout DistortionAudioProcessor::cr
 	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[2], paramsNames[2], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      0.0f));
 	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[3], paramsNames[3], NormalisableRange<float>(  0.0f,     1.0f, 0.01f, 1.0f),      1.0f));
 	layout.add(std::make_unique<juce::AudioParameterFloat>(paramsNames[4], paramsNames[4], NormalisableRange<float>(-36.0f,    36.0f,  0.1f, 1.0f),      0.0f));
+
+	layout.add(std::make_unique<juce::AudioParameterBool>("AutoGainReduction", "AutoGainReduction", false));
 
 	return layout;
 }
